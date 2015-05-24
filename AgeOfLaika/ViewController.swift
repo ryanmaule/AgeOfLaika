@@ -9,6 +9,9 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var enterAgeTextField: UITextField!
+    @IBOutlet weak var convertedAgeLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +23,15 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func convertAgeButton(sender: UIButton) {
+        let ageInHumanYears:Int = enterAgeTextField.text.toInt()!
+        let convertedConstant:Int = 7
+        convertedAgeLabel.text = "\(ageInHumanYears * convertedConstant)" + " in Dog Years"
+        enterAgeTextField.text = ""
+        enterAgeTextField.resignFirstResponder()
+        convertedAgeLabel.textColor = UIColor.blueColor()
+        convertedAgeLabel.hidden = false
+    }
 
 }
 
